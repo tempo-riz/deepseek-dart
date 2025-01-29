@@ -16,6 +16,12 @@ dart doc
 dart format .
 flutter pub publish --dry-run
 
+When run pana will make modifications to the package, so start by making a copy of the directory holding your package: cp ~/dev/mypkg ~/tmp/mypkg
+
+Make sure you have the latest pana tool: dart pub global activate pana (pana changes frequently, so run this again frequently to update the pana tool)
+
+Run pana on the copy we made earlier: dart pub global run pana ~/tmp/mypkg
+
 -->
 
 A DeepSeek client for dart and flutter. Seamless integration of AI models for text generation and chat.
