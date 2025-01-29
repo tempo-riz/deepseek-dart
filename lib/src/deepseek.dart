@@ -21,11 +21,10 @@ class DeepSeek {
       };
 
   /// https://api-docs.deepseek.com/api/create-chat-completion
-  Future<Completion> createChat({
-    required List<Message> messages,
-    Models model = Models.chat,
-    Map<String, dynamic>? options,
-  }) async {
+  Future<Completion> createChat(
+      {required List<Message> messages,
+      Models model = Models.chat,
+      Map<String, dynamic>? options}) async {
     final res = await http.post(
       Uri.parse('$_baseUrl/chat/completions'),
       headers: _headers..['Content-Type'] = 'application/json',
@@ -36,8 +35,9 @@ class DeepSeek {
       }),
     );
 
-    if (res.statusCode != 200)
+    if (res.statusCode != 200) {
       throw Exception('Failed to create chat completion');
+    }
 
     return Completion(res.body);
   }
