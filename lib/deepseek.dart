@@ -1,9 +1,8 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
+/// A DeepSeek client for dart and flutter. Seamless integration of AI models for text generation and chat.
 library;
 
+/// The base library
 export 'src/deepseek.dart';
-export 'src/types.dart';
 
-// TODO: Export any libraries intended for clients of this package.
+/// The types library
+export 'src/types.dart';

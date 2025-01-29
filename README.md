@@ -21,28 +21,58 @@ flutter pub publish --dry-run
 A DeepSeek client for dart and flutter. Seamless integration of AI models for text generation and chat.
 
 
-## Features
+## Features/endpoints supported
 
-Work in progress : Support all deepseek features
+- Create Chat Completion
+- List Models
+- Get User Balance
 
-- Official docs : https://api-docs.deepseek.com/api/deepseek-api
 
-<!-- ## Getting started
+You need something else ? Feel free to create issues, contribute to this project or to ask for new features on [GitHub](https://github.com/tempo-riz/deepseek-dart) !
 
-List prerequisites and provide or point to information on how to
-start using the package.
+Official docs : https://api-docs.deepseek.com/api/deepseek-api
+
+## Getting started
+
+All you need is a DeepSeek API key. You can get one [here](https://platform.deepseek.com/api_keys)
 
 ## Usage
 
-Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
 ```dart
-const like = 'sample';
+// Initialize DeepSeek client with your API key
+final deepSeek = DeepSeek("your-api-key");
+
+try { 
+  // Create a chat completion -> https://api-docs.deepseek.com/api/create-chat-completion
+  Completion response = await deepSeek.createChat(
+    messages: [Message(role: "user", content: "Hello, how are you?")],
+    model: Models.chat,
+    options: {
+      "temperature": 1.0,
+      "max_tokens": 4096,
+    },
+  );
+  print("Chat Response: ${response.text}");
+
+  // List available models
+  List<Models> models = await deepSeek.listModels();
+  print("Available Models: $models");
+
+  // Get user balance
+  Balance balance = await deepSeek.getUserBalance();
+  print("User Balance: ${balance.info}");
+
+} catch (e) {
+  print("Error: $e");
+}
 ```
 
 ## Additional information
 
-Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more. -->
+I created this package for my own needs. Happy to share !
+
+Don't hesitate to ask for new features or to contribute on [GitHub](https://github.com/tempo-riz/deepseek-dart) !
+
+## Support
+
+If you'd like to support this project, consider contributing [here](https://github.com/sponsors/tempo-riz). Thank you! :)
