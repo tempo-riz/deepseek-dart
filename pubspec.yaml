@@ -1,6 +1,6 @@
 name: deepseek
 description: >
-  A Deepseek client for Dart and Flutter
+  A DeepSeek client for dart and flutter. Seamless integration of AI models for text generation and chat.
 
 version: 0.0.1
 repository: https://github.com/tempo-riz/deepseek-dart

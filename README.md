@@ -18,7 +18,8 @@ flutter pub publish --dry-run
 
 -->
 
-A Deepseek client for Dart and Flutter
+A DeepSeek client for dart and flutter. Seamless integration of AI models for text generation and chat.
+
 
 ## Features
 
