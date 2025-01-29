@@ -25,6 +25,8 @@ A DeepSeek client for dart and flutter. Seamless integration of AI models for te
 
 Work in progress : Support all deepseek features
 
+- Official docs : https://api-docs.deepseek.com/api/deepseek-api
+
 <!-- ## Getting started
 
 List prerequisites and provide or point to information on how to

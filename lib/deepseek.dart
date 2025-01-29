@@ -3,6 +3,7 @@
 /// More dartdocs go here.
 library;
 
-export 'src/deepseek_base.dart';
+export 'src/deepseek.dart';
+export 'src/types.dart';
 
 // TODO: Export any libraries intended for clients of this package.
