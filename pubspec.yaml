@@ -1,8 +1,9 @@
 name: deepseek
 description: >
+  A Deepseek client for Dart and Flutter
 
-version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+version: 0.0.1
+repository: https://github.com/tempo-riz/deepseek-dart
 
 environment:
   sdk: ^3.5.4
