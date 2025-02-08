@@ -58,11 +58,11 @@ class Message {
     );
   }
 
-  String toJson() => jsonEncode({
-        'content': content,
-        'role': role,
-        'name': name,
-      });
+  Map<String, String?> toMap() => ({
+    'content': content,
+    'role': role,
+    'name': name,
+  });
 
   @override
   String toString() => 'Message(content: $content, role: $role, name: $name)';
