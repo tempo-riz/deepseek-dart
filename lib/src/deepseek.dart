@@ -29,7 +29,7 @@ class DeepSeek {
       Uri.parse('$_baseUrl/chat/completions'),
       headers: _headers..['Content-Type'] = 'application/json',
       body: jsonEncode({
-        'messages': messages.map((e) => e.toJson()).toList(),
+        'messages': messages.map((e) => e.toMap()).toList(),
         'model': model.value,
         ...?options,
       }),
