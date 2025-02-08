@@ -1,3 +1,8 @@
+## 1.1.0
+- fixed serialization issue (thanks @Hevienz)
+- added tests
+- throw with more details
+
 ## 1.0.1
 - removed flutter dependencies
 ## 1.0.0

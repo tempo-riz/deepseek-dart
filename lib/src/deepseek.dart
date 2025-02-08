@@ -36,7 +36,8 @@ class DeepSeek {
     );
 
     if (res.statusCode != 200) {
-      throw Exception('Failed to create chat completion');
+      throw Exception(
+          'Failed to create chat completion ${res.statusCode}: ${res.body}');
     }
 
     return Completion(res.body);
@@ -49,7 +50,9 @@ class DeepSeek {
       headers: _headers,
     );
 
-    if (res.statusCode != 200) throw Exception('Failed to list models');
+    if (res.statusCode != 200) {
+      throw Exception('Failed to list models ${res.statusCode}: ${res.body}');
+    }
 
     final Map<String, dynamic> map = jsonDecode(res.body);
 
@@ -64,7 +67,10 @@ class DeepSeek {
       headers: _headers,
     );
 
-    if (res.statusCode != 200) throw Exception('Failed to get user balance');
+    if (res.statusCode != 200) {
+      throw Exception(
+          'Failed to get user balance ${res.statusCode}: ${res.body}');
+    }
 
     return Balance(res.body);
   }

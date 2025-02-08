@@ -8,3 +8,4 @@ pubspec.lock
 private
 .DS_Store
 tmp
+.env

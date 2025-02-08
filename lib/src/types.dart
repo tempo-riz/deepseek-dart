@@ -59,10 +59,10 @@ class Message {
   }
 
   Map<String, String?> toMap() => ({
-    'content': content,
-    'role': role,
-    'name': name,
-  });
+        'content': content,
+        'role': role,
+        'name': name,
+      });
 
   @override
   String toString() => 'Message(content: $content, role: $role, name: $name)';
@@ -77,7 +77,7 @@ class Balance {
   final Map<String, dynamic> map;
 
   /// The user balance object
-  Map<String, String> get info => map['balance_infos'][0];
+  Map<String, dynamic> get info => map['balance_infos'][0];
 
   /// Create a new balance object
   Balance(this.json) : map = jsonDecode(json);
