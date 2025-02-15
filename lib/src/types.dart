@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:deepseek/src/utils.dart';
+
 /// The available models
 enum Models {
   /// The chat model
@@ -26,6 +28,11 @@ class Completion {
 
   /// The completion text
   String get text => map['choices'][0]['message']['content'];
+
+  /// The completion text rencoded as UTF-8 (chineese)
+  ///
+  /// https://github.com/tempo-riz/deepseek-dart/issues/2
+  String get textUtf8 => fixUtf8(text);
 
   /// Create a new completion object
   Completion(this.json) : map = jsonDecode(json);

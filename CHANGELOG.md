@@ -1,3 +1,6 @@
+## 1.1.1
+- added .textUtf8 getter to Completion model to fix chinese encoding issue
+  
 ## 1.1.0
 - fixed serialization issue (thanks @Hevienz)
 - added tests
