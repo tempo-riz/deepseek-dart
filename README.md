@@ -68,8 +68,10 @@ try {
   Balance balance = await deepSeek.getUserBalance();
   print("User Balance: ${balance.info}");
 
+} on DeepSeekException catch (e) {
+  print("Api returned error: ${e.statusCode}:${e.message}");
 } catch (e) {
-  print("Error: $e");
+  print("something unexpected happened: $e");
 }
 ```
 

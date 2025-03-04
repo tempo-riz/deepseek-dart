@@ -12,10 +12,10 @@ enum Models {
   ;
 
   /// Create a new model
-  const Models(this.value);
+  const Models(this.name);
 
   /// Server side name
-  final String value;
+  final String name;
 }
 
 /// The completion response
@@ -88,4 +88,56 @@ class Balance {
 
   /// Create a new balance object
   Balance(this.json) : map = jsonDecode(json);
+}
+
+/// Represents a DeepSeek API error
+class DeepSeekException implements Exception {
+// {
+//   "error": {
+//     "message": "Authentication Fails (no such user)",
+//     "type": "authentication_error",
+//     "param": null,
+//     "code": "invalid_request_error"
+//   }
+// }
+
+  /// The error message
+  final String message;
+
+  /// The error status code
+  final int? statusCode;
+
+  /// The error type
+  final String? type;
+
+  /// The error parameter
+  final String? param;
+
+  /// The error code
+  final String? code;
+
+  DeepSeekException(this.message,
+      {this.statusCode, this.type, this.param, this.code});
+
+  DeepSeekException.fromMap(Map<String, dynamic> map, {this.statusCode})
+      : message = map['message'] ?? 'Unknown error',
+        type = map['type'],
+        param = map['param'],
+        code = map['code'];
+
+  DeepSeekException.fromBody(String body, int statusCode)
+      : this.fromMap(_parseBody(body), statusCode: statusCode);
+
+  static Map<String, dynamic> _parseBody(String body) {
+    try {
+      final json = jsonDecode(body);
+      return json['error'] ?? {};
+    } catch (e) {
+      return {'message': 'Failed to parse error response: $body'};
+    }
+  }
+
+  @override
+  String toString() =>
+      'ApiException(message: $message, statusCode: $statusCode, type: $type, param: $param, code: $code)';
 }

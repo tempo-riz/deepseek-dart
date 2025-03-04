@@ -25,7 +25,7 @@ void main() {
     test('create chat', () async {
       final completion = await deepseek.createChat(
         messages: [Message(role: "user", content: "Hello, how are you?")],
-        model: Models.chat,
+        model: Models.chat.name,
         options: {
           "temperature": 1.0,
           "max_tokens": 4096,

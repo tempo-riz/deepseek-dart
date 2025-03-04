@@ -1,3 +1,7 @@
+## 1.2.0
+- model param of createChat method is now a string for future compatibility with new models
+- now methods throw a DeepSeekException instead of a generic Exception for better error handling
+
 ## 1.1.1
 - added .textUtf8 getter to Completion model to fix chinese encoding issue
   

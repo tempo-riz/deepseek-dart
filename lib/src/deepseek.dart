@@ -21,43 +21,43 @@ class DeepSeek {
       };
 
   /// https://api-docs.deepseek.com/api/create-chat-completion
+  ///
+  /// model defaults to deepseek-chat
   Future<Completion> createChat(
       {required List<Message> messages,
-      Models model = Models.chat,
+      String? model,
       Map<String, dynamic>? options}) async {
     final res = await http.post(
       Uri.parse('$_baseUrl/chat/completions'),
       headers: _headers..['Content-Type'] = 'application/json',
       body: jsonEncode({
         'messages': messages.map((e) => e.toMap()).toList(),
-        'model': model.value,
+        'model': model ?? Models.chat.name,
         ...?options,
       }),
     );
 
     if (res.statusCode != 200) {
-      throw Exception(
-          'Failed to create chat completion ${res.statusCode}: ${res.body}');
+      throw DeepSeekException.fromBody(res.body, res.statusCode);
     }
 
     return Completion(res.body);
   }
 
   /// https://api-docs.deepseek.com/api/list-models
-  Future<List<Models>> listModels() async {
+  Future<List<String>> listModels() async {
     final res = await http.get(
       Uri.parse('$_baseUrl/models'),
       headers: _headers,
     );
 
     if (res.statusCode != 200) {
-      throw Exception('Failed to list models ${res.statusCode}: ${res.body}');
+      throw DeepSeekException.fromBody(res.body, res.statusCode);
     }
 
     final Map<String, dynamic> map = jsonDecode(res.body);
 
-    return List<Models>.from(map['data']
-        .map((m) => Models.values.firstWhere((e) => e.value == m['id'])));
+    return List<String>.from(map['data'].map((m) => m['id']));
   }
 
   /// https://api-docs.deepseek.com/api/get-user-balance
@@ -68,8 +68,7 @@ class DeepSeek {
     );
 
     if (res.statusCode != 200) {
-      throw Exception(
-          'Failed to get user balance ${res.statusCode}: ${res.body}');
+      throw DeepSeekException.fromBody(res.body, res.statusCode);
     }
 
     return Balance(res.body);
