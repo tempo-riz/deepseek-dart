@@ -26,6 +26,7 @@ Run pana on the copy we made earlier: dart pub global run pana ~/tmp/mypkg
 
 A DeepSeek client for dart and flutter. Seamless integration of AI models for text generation and chat.
 
+[![Pub Version](https://img.shields.io/pub/v/deepseek)](https://pub.dev/packages/deepseek)
 
 ## Features/endpoints supported
 
