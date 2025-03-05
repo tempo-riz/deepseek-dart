@@ -52,7 +52,7 @@ try {
   // Create a chat completion -> https://api-docs.deepseek.com/api/create-chat-completion
   Completion response = await deepSeek.createChat(
     messages: [Message(role: "user", content: "Hello, how are you?")],
-    model: Models.chat,
+    model: Models.chat.name,
     options: {
       "temperature": 1.0,
       "max_tokens": 4096,
@@ -61,7 +61,7 @@ try {
   print("Chat Response: ${response.text}");
 
   // List available models
-  List<Models> models = await deepSeek.listModels();
+  List<String> models = await deepSeek.listModels();
   print("Available Models: $models");
 
   // Get user balance
