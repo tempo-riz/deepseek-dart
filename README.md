@@ -24,9 +24,18 @@ Run pana on the copy we made earlier: dart pub global run pana ~/tmp/mypkg
 
 -->
 
+# DeepSeek Dart
+
+![Pub Version](https://img.shields.io/pub/v/deepgram_speech_to_text)
+![Pub Likes](https://img.shields.io/pub/likes/deepgram_speech_to_text)
+![Pub Monthly Downloads](https://img.shields.io/pub/dm/deepgram_speech_to_text)
+
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/M4M71BK1YJ)
+
 A DeepSeek client for dart and flutter. Seamless integration of AI models for text generation and chat.
 
-[![Pub Version](https://img.shields.io/pub/v/deepseek)](https://pub.dev/packages/deepseek)
+
 
 ## Features/endpoints supported
 
