@@ -26,9 +26,9 @@ Run pana on the copy we made earlier: dart pub global run pana ~/tmp/mypkg
 
 # DeepSeek Dart
 
-![Pub Version](https://img.shields.io/pub/v/deepgram_speech_to_text)
-![Pub Likes](https://img.shields.io/pub/likes/deepgram_speech_to_text)
-![Pub Monthly Downloads](https://img.shields.io/pub/dm/deepgram_speech_to_text)
+![Pub Version](https://img.shields.io/pub/v/deepseek)
+![Pub Likes](https://img.shields.io/pub/likes/deepseek)
+![Pub Monthly Downloads](https://img.shields.io/pub/dm/deepseek)
 
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/M4M71BK1YJ)
