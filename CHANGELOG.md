@@ -1,3 +1,6 @@
+## 1.2.1
+- ensure propper utf8 encoding
+
 ## 1.2.0
 - model param of createChat method is now a string for future compatibility with new models
 - now methods throw a DeepSeekException instead of a generic Exception for better error handling

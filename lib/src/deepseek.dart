@@ -40,8 +40,8 @@ class DeepSeek {
     if (res.statusCode != 200) {
       throw DeepSeekException.fromBody(res.body, res.statusCode);
     }
-
-    return Completion(res.body);
+    // make sure the response is utf8
+    return Completion(utf8.decode(res.bodyBytes));
   }
 
   /// https://api-docs.deepseek.com/api/list-models

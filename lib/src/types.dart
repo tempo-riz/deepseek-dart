@@ -29,9 +29,12 @@ class Completion {
   /// The completion text
   String get text => map['choices'][0]['message']['content'];
 
-  /// The completion text rencoded as UTF-8 (chineese)
+  /// The completion text rencoded as UTF-8 (chinese)
+  ///
+  /// Only use this if you have issues with .text
   ///
   /// https://github.com/tempo-riz/deepseek-dart/issues/2
+  @Deprecated('not needed anymore, but kept for backward compatibility')
   String get textUtf8 => fixUtf8(text);
 
   /// Create a new completion object
