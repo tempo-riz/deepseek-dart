@@ -10,10 +10,10 @@ class DeepSeek {
   /// get one here: https://platform.deepseek.com/api_keys
   final String apiKey;
 
-  final String _baseUrl = 'https://api.deepseek.com';
+  final String baseUrl;
 
   /// Initialize DeepSeek client with your API key
-  DeepSeek(this.apiKey);
+  DeepSeek(this.apiKey, {this.baseUrl = 'https://api.deepseek.com'});
 
   Map<String, String> get _headers => {
         'accept': 'application/json',
@@ -28,7 +28,7 @@ class DeepSeek {
       String? model,
       Map<String, dynamic>? options}) async {
     final res = await http.post(
-      Uri.parse('$_baseUrl/chat/completions'),
+      Uri.parse('$baseUrl/chat/completions'),
       headers: _headers..['Content-Type'] = 'application/json',
       body: jsonEncode({
         'messages': messages.map((e) => e.toMap()).toList(),
@@ -47,7 +47,7 @@ class DeepSeek {
   /// https://api-docs.deepseek.com/api/list-models
   Future<List<String>> listModels() async {
     final res = await http.get(
-      Uri.parse('$_baseUrl/models'),
+      Uri.parse('$baseUrl/models'),
       headers: _headers,
     );
 
@@ -63,7 +63,7 @@ class DeepSeek {
   /// https://api-docs.deepseek.com/api/get-user-balance
   Future<Balance> getUserBalance() async {
     final res = await http.get(
-      Uri.parse('$_baseUrl/user/balance'),
+      Uri.parse('$baseUrl/user/balance'),
       headers: _headers,
     );
 
