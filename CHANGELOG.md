@@ -1,3 +1,6 @@
+## 1.3.0
+- allow custom baseUrl (thanks @flying-forever)
+
 ## 1.2.1
 - ensure propper utf8 encoding
 

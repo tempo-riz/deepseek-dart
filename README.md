@@ -56,7 +56,10 @@ All you need is a DeepSeek API key. You can get one [here](https://platform.deep
 
 ```dart
 // Initialize DeepSeek client with your API key
-final deepSeek = DeepSeek("your-api-key");
+final deepSeek = DeepSeek(
+  "your-api-key",
+  // baseUrl: 'https://api.deepseek.com' (default)
+);
 
 try { 
   // Create a chat completion -> https://api-docs.deepseek.com/api/create-chat-completion
